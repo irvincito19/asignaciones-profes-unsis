@@ -1,0 +1,15 @@
+profe-mat-unsis.irisvisual.com {
+    reverse_proxy localhost:3012
+
+    encode zstd gzip
+    header {
+        Strict-Transport-Security "max-age=31536000;"
+        X-Content-Type-Options nosniff
+        X-Frame-Options SAMEORIGIN
+        Referrer-Policy no-referrer-when-downgrade
+    }
+    # permitir subida de Excel hasta 20MB
+    request_body {
+        max_size 20MB
+    }
+}
